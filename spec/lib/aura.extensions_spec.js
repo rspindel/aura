@@ -47,8 +47,7 @@ define(['aura/aura.extensions'], function (ExtManager) {
       it('Should not be possible to add an extension twice', function () {
         var mgr = new ExtManager();
         var ext = { ref: sinon.spy(), context: '123' };
-        var addExt = function () { mgr.add(ext); };
-        addExt();
+        var addExt = function () { mgr.add(ext); mgr.add(ext) };
         addExt.should.Throw(Error);
       });
 
